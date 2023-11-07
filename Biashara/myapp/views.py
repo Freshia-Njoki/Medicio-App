@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from myapp.models import Member
+from myapp.forms import ProductsForm
+from myapp.models import Product
 
 
 # Create your views here.
@@ -52,3 +54,19 @@ def doctors(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+
+def add(request):
+    if request.method == 'POST':
+        form = ProductsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+    else:
+        form = ProductsForm()
+        return render(request, 'addproduct.html', {'form': form})
+
+
+def show(request):
+    products = Product.objects.all()
+    return render(request, 'show.html', {'products': products})

@@ -10,3 +10,12 @@ class Member(models.Model):
 
     def __str__(self):
         return self.firstname+" "+self.lastname
+
+class Product(models.Model):
+    name = models.CharField(max_length=50)
+    price = models.IntegerField(default=0)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+

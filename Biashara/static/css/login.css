@@ -1,5 +1,5 @@
 .login-dark {
-  height:600px;
+  height:1000px;
   background:#475d62 url("https://www.istockphoto.com/photo/they-share-a-great-office-relationship-gm675975170-124079107?utm_campaign=srp_photos_top&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fmeeting&utm_medium=affiliate&utm_source=unsplash&utm_term=meeting%3A%3A%3A");
   background-size:cover;
   position:relative;
@@ -8,6 +8,7 @@
 .login-dark form {
   max-width:320px;
   width:90%;
+  height: 100%;
   background-color:#1e2833;
   padding:40px;
   border-radius:4px;
