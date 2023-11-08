@@ -70,3 +70,22 @@ def add(request):
 def show(request):
     products = Product.objects.all()
     return render(request, 'show.html', {'products': products})
+
+
+def delete(request, id):
+    product = Product.objects.get(id=id)
+    product.delete()
+    return redirect('/show')
+
+def edit(request, id):
+    products = Product.objects.get(id=id)
+    return render(request, 'edit.html', {'products': products})
+
+def update(request, id):
+    product = Product.objects.get(id=id)
+    form = ProductsForm(request.POST, instance=product)
+    if form.is_valid():
+        form.save()
+        return redirect('/show')
+    else:
+        return render(request, 'edit.html', {'product': product})
