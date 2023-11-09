@@ -23,6 +23,18 @@
     <label for="description" class="form-label">Description</label>
     <input type="text" name="description" id="description" value="{{ products.description }}" class="form-control">
 
+     <label for="origin" class="form-label">Origin</label>
+    <input type="text" name="origin" id="origin" value="{{ products.origin }}" class="form-control">
+
+    <label for="color" class="form-label">Color</label>
+    <select name="color" id="color">
+        <option selected>{{ products.color}}</option>
+        <option value="brown">Brown</option>
+        <option value="black">Black</option>
+    </select>
+
+
+
     <br><br>
 
     <button type="submit" class="btn btn-primary">Update</button>

@@ -19,6 +19,8 @@
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
+        <th>Origin</th>
+        <th>Color</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -29,6 +31,9 @@
         <td>{{product.name}}</td>
         <td>{{product.price}}</td>
         <td>{{product.description}}</td>
+        <td>{{product.origin}}</td>
+        <td>{{product.color}}</td>
+
         <td>
             <a href="/edit/{{ product.id }}" class="btn btn-warning">EDIT</a>
             <a href="/delete/{{ product.id }}" class="btn btn-danger">DELETE</a>
@@ -36,7 +41,6 @@
         </td>
     </tr>
       {% endfor %}
-
     </tbody>
 
 
