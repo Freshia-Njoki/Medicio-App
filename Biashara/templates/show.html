@@ -29,7 +29,7 @@
     {% for product in products %}
     <tr>
         <td>{{product.name}}</td>
-        <td>{{product.price}}</td>
+        <td>{{product .price}}</td>
         <td>{{product.description}}</td>
         <td>{{product.origin}}</td>
         <td>{{product.color}}</td>
@@ -37,7 +37,7 @@
         <td>
             <a href="/edit/{{ product.id }}" class="btn btn-warning">EDIT</a>
             <a href="/delete/{{ product.id }}" class="btn btn-danger">DELETE</a>
-            <a href="" class="btn btn-success">PAY</a>
+            <a href="{% url 'pay'%}" class="btn btn-success">PAY</a>
         </td>
     </tr>
       {% endfor %}
