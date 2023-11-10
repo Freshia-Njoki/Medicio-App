@@ -18,7 +18,7 @@ urlpatterns = [
     path('delete/<int:id>', views.delete),
     path('edit/<int:id>', views.edit),
     path('update/<int:id>', views.update),
-    path('pay/', views.make_payment, name='pay'),
-    path('success/', views.success, name='success'),
-    path('error/', views.error, name='error'),
+    path('pay/', views.pay, name='pay'),
+    path('token/', views.token, name='token'),
+    path('stk/', views.stk, name='stk'),
 ]
