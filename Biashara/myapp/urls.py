@@ -3,7 +3,7 @@ from django.urls import path
 from myapp import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', views.register, name='register'),
     path('login/', views.login, name='login'),
     path('index/', views.index, name='index'),
@@ -21,4 +21,8 @@ urlpatterns = [
     path('pay/', views.pay, name='pay'),
     path('token/', views.token, name='token'),
     path('stk/', views.stk, name='stk'),
+
+    path('upload/', views.upload_image, name='upload'),
+    path('image/', views.show_image, name='image'),
+    path('imagedelete/<int:id>', views.imagedelete),
 ]

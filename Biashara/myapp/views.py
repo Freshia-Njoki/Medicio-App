@@ -3,9 +3,8 @@ import json
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from myapp.models import Member
-from myapp.forms import ProductsForm
-from myapp.models import Product
+from myapp.models import Member, Product, ImageModel
+from myapp.forms import ProductsForm, ImageUploadForm
 import requests
 from myapp.credentials import MpesaC2bCredential, MpesaAccessToken, LipanaMpesaPpassword
 from requests.auth import HTTPBasicAuth
@@ -137,3 +136,23 @@ def stk(request):
         }
         response = requests.post(api_url, json=request, headers=headers)
         return HttpResponse(response)
+
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/image')
+    else:
+        form = ImageUploadForm()
+    return render(request, 'upload_image.html', {'form': form})
+
+def show_image(request):
+    images = ImageModel.objects.all()
+    return render(request, 'show_image.html', {'images': images})
+
+def imagedelete(request, id):
+    image = ImageModel.objects.get(id=id)
+    image.delete()
+    return redirect('/image')
